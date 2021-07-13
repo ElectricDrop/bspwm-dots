@@ -1,0 +1,17 @@
+format = "[  ](bold #a3be8c)$directory$git_branch$git_commit$git_status$character"
+
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+[character]
+#success_symbol = "[➜](bold #D08770)"
+success_symbol = "[󰮯 ](bold #88C0D0)"
+error_symbol = "[󱎘](bold red) "
+
+
+[directory]
+home_symbol = "~"
+truncation_length = 10
+truncate_to_repo = true # truncates directory to root folder if in github repo
+style = "bold italic #EBCB8B"
+read_only = " "
