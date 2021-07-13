@@ -1,0 +1,96 @@
+configuration{
+    modi: "drun";
+    width: 40;
+    columns: 3;
+    lines: 5;
+ 	font: "JetBrains Mono Italic 10";
+    show-icons: true;
+	icon-theme: "Papirus";
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    display-drun: "Run";
+    location: 0;
+    separator-style: "solid";
+    disable-history: false;
+    hide-scrollbar: true;
+
+}
+
+* {
+    background-color:  #2e3440 ;
+    border-color: #D8DEE9  ;
+    text-color: #D8DEE9;
+    separator-color: @border-color;
+    font: "Iosevka 12";
+    show-icons: true;
+}
+
+window {
+    padding: 10px;
+    height: 310px;
+    border: 3px;
+    border-color: #88c0d0;
+    border-radius: 5px;
+   // fullscreen: true;
+
+
+}
+
+mainbox {
+    padding: 5px;
+            border-radius: 13px;
+
+}
+
+inputbar {
+    children: [prompt,entry];
+}
+
+prompt {
+    background-color: #88c0d0;
+    padding: 5px 5px 0px;
+
+    text-color: @background-color;
+}
+
+// Not used
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 5px;
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+      columns: 2;
+
+}
+
+element {
+    padding: 5px;
+}
+
+element-icon {
+size: 25px;
+
+}
+
+element selected {
+    background-color: #434c5e  ;
+    text-color: #8fbcbb ;
+        border-radius: 7px;
+}
+
+element urgent {
+    background-color: #BF616A;
+    text-color: @background-color;
+}
+
+element active {
+    background-color: #EBCB8B;
+    text-color: @background-color;
+}

@@ -1,0 +1,352 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+[colors]
+background           = #2a303b
+background-alt       = #d8dee9
+foreground           = #d8dee9
+foreground-alt       = #d8dee9
+primary              = #e5e9f0
+secondary            = #d8dee9
+alert                = #e5e9f0
+non                  = #e5e9f0
+
+[bar/example]
+monitor = eDP
+width = 100%
+height = 24
+offset-x = 0
+offset-y = 0
+radius = 0
+fixed-center = true
+bottom = true
+#enable-ipc = true
+module-position = center
+tray-position = right
+tray-foreground = #88c0d0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+
+
+
+border-top-size =  0
+border-bottom-size = 0
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+module-margin-top = 2
+
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:size=10;3
+font-1 = Font Awesome 5 Free:style=Solid:size=9;2
+font-2 = Font Awesome 5 Free:style=Regular:size=9;2
+font-3 = Font Awesome 5 Brands:style=Regular:size=9;2
+font-4 = Material Design Icons:style=Regular:size=12;3
+font-5 = Unifont:fontformat=truetype:size=13:antialias=true;
+
+
+modules-left    = bspwm
+modules-center  = date 
+modules-right   = network volume mem wlan backlight battery powermenu 
+
+wm-restack = bspwm
+;wm-restack = bspwm
+
+override-redirect = false
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+###########################################################################
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+
+format-volume-font = 10
+format-volume-padding = 0
+label-volume = %percentage%%
+
+label-muted = ""
+label-muted-padding = 2
+ramp-volume-0 = 󰎆 
+
+ramp-volume-0-foreground = #a3be8c
+label-volume-foreground = #a3be8c
+#ramp-volume-1 = 
+#ramp-volume-2 = 
+#ramp-volume-3 = 
+#ramp-volume-4 = 
+#ramp-volume-5 = 
+#ramp-volume-6 = 
+
+###########################################################################
+
+[module/network]
+type = internal/network
+interface = wlp1s0
+interval = 1.0
+label-connected = 󰬦 %downspeed% 
+
+
+label-disconnected = 󰬦 Down 
+label-disconnected-foreground = #D08770
+label-connected-foreground = #8fbcbb
+
+###########################################################################
+
+[module/powermenu]
+type = custom/menu
+ 
+expand-right = false
+#format-spacing = 1
+ 
+label-open = ""
+label-open-foreground = #bf616a
+#label-open-background = #cceabb  
+#label-open-padding = 1
+label-close = 
+label-close-foreground = ${colors.background}
+label-close-background = #88c0d0
+ 
+label-close-padding = 1
+ 
+label-separator = " | "
+ 
+menu-0-0 = 
+menu-0-0-exec = doas poweroff
+menu-0-0-foreground = #d08770
+menu-0-1 = 
+menu-0-1-exec = doas reboot
+menu-0-1-foreground = #d08770
+menu-0-2 = 
+menu-0-2-exec = doas zzz
+menu-0-2-foreground = #d08770
+menu-0-3 = 
+menu-0-3-exec = bspc quit
+menu-0-3-foreground = #d08770
+menu-0-4 = 
+menu-0-4-exec = betterlockscreen -l -b 1
+#menu-0-4-exec = betterlockscreen -l -b 1
+menu-0-4-foreground = #d08770
+
+###########################################################################
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format = <label>
+
+label = " %percentage%%"
+label-foreground = #d08770
+
+###########################################################################
+
+[module/mem]
+type = custom/script
+exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
+format = <label>
+label = "󰍛%output%"
+label-foreground = #b48ead 
+#label-padding = 1
+
+###########################################################################
+
+[module/date]
+type = internal/date
+interval = 5
+format-prefix-foreground = ${colors.background}
+time  = %H:%M
+date = %d-%B
+#format-prefix = " "
+#click-left = %time% %date%
+label = %time%    %date%  
+label-foreground = #ebcb8b
+label-font = <1>
+
+###########################################################################
+
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+format =  <label-connected> <ramp-connected>
+label-connected = "󰤨"
+label-disconnected = "󰤩"
+label-connected-foreground = #88c0d0
+label-disconnected-foreground = #d08770
+ramp-connected-0 = "󰤟"
+ramp-connected-1 = "󰤢"
+ramp-connected-2 = "󰤥"
+ramp-connected-4 = "󰤨"
+
+###########################################################################
+
+[module/updates-pacman]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/updates-pacman.sh
+interval = 1
+label = 󰮯 %output%
+label-foreground = #8fbcbb
+
+###########################################################################
+
+[module/backlight]
+type = internal/backlight
+format = <label>
+format-prefix = " "
+card = amdgpu_bl0
+label = %percentage%%
+label-foreground = #ebcb8b
+format-prefix-foreground = #ebcb8b
+
+###########################################################################
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%%
+format-charging-foreground = #a3be8c
+format-charging-background = ${colors.background}
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%%
+format-discharging-foreground = #a3be8c
+format-discharging-background = ${colors.background}
+
+format-full-prefix = " "
+format-full-prefix-foreground = #a3be8c
+format-foreground = #a3be8c
+format-background = ${colors.background}
+
+label-discharging-foreground = #a3be8c
+label-charging-foreground = #a3be8c
+#label-padding = 1
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #a3be8c
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #a3be8c
+animation-charging-framerate = 750
+
+#format-charging-padding = 1
+#format-discharging-padding = 1
+
+###########################################################################
+
+[module/workspaces]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = true
+format-padding = 0
+
+icon-default = 
+
+format = <label-state>
+format-background = ${color.bg1}
+label-active = 
+label-occupied = 
+label-urgent = 
+label-empty = 
+
+label-empty-padding = 1
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+
+label-empty-foreground = #88c0d0
+label-active-foreground = #88c0d0
+label-urgent-foreground = ${color.curgent}
+label-occupied-foreground = #88c0d0
+
+###########################################################################
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = true
+reverse-scroll = false
+
+format = <label-state>
+
+ws-icon-0 =I;%{F#B48EAD}󰉋  
+ws-icon-1 =II;%{F#5E81AC}󰨞 
+ws-icon-2 =III;%{F#D08770}󰈹
+ws-icon-3 =IV;%{F#88C0D0}󰞷 
+ws-icon-4 =V;%{F#A3BE8C}󰭹  
+ws-icon-5 =VI;%{F#8FBCBB}󰓇 
+
+label-focused = %icon%
+label-focused-underline = #EBCB8B
+label-focused-padding = 1
+
+
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-overline = #88C0D0
+
+label-urgent = %icon%
+;label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+label-urgent-background = #f19cd7 
+
+label-empty = %icon%
+label-empty-foreground = #D8DEE9
+label-empty-padding = 1
+
+; Separator in between workspaces
+ label-separator = 
+###########################################################################
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
