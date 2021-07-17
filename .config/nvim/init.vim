@@ -24,7 +24,7 @@ cmap <C-V> <C-r>0
 inoremap jk <ESC>
 
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'sheerun/vim-polyglot'
