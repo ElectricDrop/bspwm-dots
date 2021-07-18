@@ -33,14 +33,6 @@ body {
     transition: 0.2s;
 }
 
-.card:hover,
-.card:active {
-    transform: translateY(-1rem);
-}
-.card:hover ~ .card,
-.card:active ~ .card {
-    transform: translateX(130px);
-}
 .card:not(:first-child) {
     margin-left: -130px;
 }
