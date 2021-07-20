@@ -3,7 +3,7 @@ configuration{
     width: 40;
     columns: 3;
     lines: 5;
- 	font: "JetBrains Mono Italic 10";
+ 	font: "JetBrains Mono Bold Italic 10";
     show-icons: true;
 	icon-theme: "Papirus";
     terminal: "alacritty";
@@ -21,7 +21,7 @@ configuration{
     border-color: #D8DEE9  ;
     text-color: #D8DEE9;
     separator-color: @border-color;
-    font: "Iosevka 12";
+    font: "JetBrains Mono Bold Italic 12";
     show-icons: true;
 }
 
