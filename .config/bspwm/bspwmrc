@@ -13,7 +13,7 @@ xsetroot -cursor_name left_ptr
 ~/.Xmodmap &
 light -S 30
 #dunst &
-
+xset -b &
 
 bspc monitor -d I II III IV V VI
 
