@@ -14,11 +14,12 @@ xsetroot -cursor_name left_ptr
 light -S 30
 #dunst &
 xset -b &
+xbanish &
 
 bspc monitor -d I II III IV V VI
 
 bspc config border_width         3
-bspc config window_gap         5
+bspc config window_gap         4
 bspc config split_ratio          0.50
 #bspc config pointer_motion_interval	10
 
