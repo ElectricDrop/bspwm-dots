@@ -1,66 +1,68 @@
 {
-	"window.menuBarVisibility": "toggle",
-	"workbench.iconTheme": "material-icon-theme",
-	"editor.fontWeight": "480",
-	"editor.fontFamily": "'Jetbrains Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-	"workbench.colorCustomizations": {
-		"editor.background": "#2a303b",
-		"sideBar.background": "#2a303b",
-		"activityBar.background": "#2a303b",
-		"editorGutter.background": "#2a303b",
-		"minimap.background": "#2a303b",
-		"editorSuggestWidget.background": "#2a303b",
-		"editorSuggestWidget.selectedForeground": "#88C0D0",
-	},
-	"workbench.productIconTheme": "material-product-icons",
-	"[html]": {
-		"editor.defaultFormatter": "vscode.html-language-features"
-	},
-	"diffEditor.wordWrap": "on",
-	"workbench.colorTheme": "Nord",
-	"editor.renderWhitespace": "none",
-	"editor.formatOnSave": true,
-	"editor.tokenColorCustomizations": {
-		"textMateRules": [
-			{
-				"name": "italic font",
-				"scope": [
-					"comment",
-					"keyword",
-					"storage",
-					"keyword.control",
-					"keyword.control.from",
-					"keyword.control.flow",
-					"keyword.operator.new",
-					"keyword.control.import",
-					"keyword.control.export",
-					"keyword.control.default",
-					"keyword.control.trycatch",
-					"keyword.control.conditional",
-					"storage.type",
-					"storage.type.class",
-					"storage.modifier.tsx",
-					"storage.type.function",
-					"storage.modifier.async",
-					"variable.language",
-					"variable.language.this",
-					"variable.language.super",
-					"meta.class",
-					"meta.var.expr",
-					"constant.language.null",
-					"support.type.primitive",
-					"entity.name.method.js",
-					"entity.other.attribute-name",
-					"punctuation.definition.comment",
-					"text.html.basic entity.other.attribute-name",
-					"tag.decorator.js entity.name.tag.js",
-					"tag.decorator.js punctuation.definition.tag.js",
-					"source.js constant.other.object.key.js string.unquoted.label.js",
-				],
-				"settings": {
-					"fontStyle": "italic bold"
-				}
-			},
-		]
-	},
+  "window.menuBarVisibility": "toggle",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontWeight": "480",
+  "editor.fontFamily": "'Jetbrains Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "workbench.colorCustomizations": {
+    "editor.background": "#2a303b",
+    "sideBar.background": "#2a303b",
+    "activityBar.background": "#2a303b",
+    "editorGutter.background": "#2a303b",
+    "minimap.background": "#2a303b",
+    "editorSuggestWidget.background": "#2a303b",
+    "editorSuggestWidget.selectedForeground": "#88C0D0"
+  },
+  "workbench.productIconTheme": "material-product-icons",
+  "diffEditor.wordWrap": "on",
+  "workbench.colorTheme": "Nord",
+  "editor.renderWhitespace": "none",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "italic font",
+        "scope": [
+          "comment",
+          "keyword",
+          "storage",
+          "keyword.control",
+          "keyword.control.from",
+          "keyword.control.flow",
+          "keyword.operator.new",
+          "keyword.control.import",
+          "keyword.control.export",
+          "keyword.control.default",
+          "keyword.control.trycatch",
+          "keyword.control.conditional",
+          "storage.type",
+          "storage.type.class",
+          "storage.modifier.tsx",
+          "storage.type.function",
+          "storage.modifier.async",
+          "variable.language",
+          "variable.language.this",
+          "variable.language.super",
+          "meta.class",
+          "meta.var.expr",
+          "constant.language.null",
+          "support.type.primitive",
+          "entity.name.method.js",
+          "entity.other.attribute-name",
+          "punctuation.definition.comment",
+          "text.html.basic entity.other.attribute-name",
+          "tag.decorator.js entity.name.tag.js",
+          "tag.decorator.js punctuation.definition.tag.js",
+          "source.js constant.other.object.key.js string.unquoted.label.js"
+        ],
+        "settings": {
+          "fontStyle": "italic bold"
+        }
+      }
+    ]
+  },
+  "editor.tabSize": 5
 }
